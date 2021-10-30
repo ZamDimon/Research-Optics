@@ -33,9 +33,7 @@ public class Field : MonoBehaviour {
         int _sizeY = (int)(fieldSize.y / cellSize);
         return new Vector2Int(_sizeX, _sizeY);    
     }
-
-    //Original dependence: (1f + 2f*Mathf.Exp(Mathf.Cos(t*(x*y)/2f))/(1 + y + 0.5f*Mathf.Cos(t)) + 2f * Mathf.Cos(x*y) + 1f * Mathf.Sin((x+y)*t/3f))
-
+    
     private void Start() {
         refractionCoefficients = new float[GetFieldSize().x, GetFieldSize().y];
         formula = (x, y, t) => (1f + 2f*Mathf.Exp(Mathf.Cos(t*(x*y)/2f))/(1 + y + 0.5f*Mathf.Cos(t)) + 2f * Mathf.Cos(x*y) + 1f * Mathf.Sin((x+y)*t/3f));
